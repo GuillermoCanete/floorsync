@@ -1,0 +1,10 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow read/write to all collections (no auth for now)
+    // In production, restrict based on user roles
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
